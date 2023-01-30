@@ -17,8 +17,8 @@ const create = async (newUser) => {
 };
 
 const getAll = async () => {
-  const dataDb = await User.findAll();
-  const users = dataDb
+  const data = await User.findAll();
+  const users = data
   .map(({ dataValues: { id, displayName, email, image } }) => ({ id, displayName, email, image }));
   return { type: null, message: users };
 };
