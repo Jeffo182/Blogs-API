@@ -1,13 +1,10 @@
 const { postService } = require('../services');
 
-const create = async (req, res) => {
-  const token = req.header('Authorization');
-  const { body } = req;
-  const { type, message } = await postService.createPost(token, body);
-  if (type) return res.status(type).json({ message });
-  return res.status(201).json(message);
+const getAll = async (_req, res) => {
+  const { message } = await postService.getAll();
+  return res.status(200).json(message);
 };
 
 module.exports = {
-  create,
+  getAll,
 };
